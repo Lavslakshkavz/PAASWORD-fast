@@ -1,0 +1,176 @@
+<html>
+    <head>
+ 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+        <script>
+            function validateForm() {
+                var name = 
+                    document.forms["RegForm"]["Name"];
+                var email = 
+                    document.forms["RegForm"]["EMail"];
+                var phone = 
+                    document.forms["RegForm"]["Telephone"];
+		var pw1 = document.getElementById("pswd1").value;  
+  	      var pw2 = document.getElementById("pswd2").value;  
+                var what = 
+                    document.forms["RegForm"]["Subject"];
+                
+
+
+  
+                if (name.value == "") {
+                    window.alert("Please enter your name.");
+                    name.focus();
+                    return false;
+                }
+ 
+  
+                if (email.value == "") {
+                    window.alert(
+                      "Please enter a valid e-mail address.");
+                    email.focus();
+                    return false;
+                }
+  
+                if (phone.value == "") {
+                    window.alert(
+                      "Please enter your telephone number.");
+                    phone.focus();
+                    return false;
+                }
+  
+                if(pw1 == "") {  
+      document.getElementById("message1").innerHTML = "**Fill the password please!";  
+      return false;  
+    }  
+    
+    //check empty confirm password field  
+    if(pw2 == "") {  
+      document.getElementById("message2").innerHTML = "**Enter the password please!";  
+      return false;  
+    }   
+     
+    //minimum password length validation  
+    if(pw1.length < 8) {  
+      document.getElementById("message1").innerHTML = "**Password length must be atleast 8 characters";  
+      return false;  
+    }  
+  
+    //maximum length of password validation  
+    if(pw1.length > 15) {  
+      document.getElementById("message1").innerHTML = "**Password length must not exceed 15 characters";  
+      return false;  
+    }  
+    
+    if(pw1 != pw2) {  
+      document.getElementById("message2").innerHTML = "**Passwords are not same";  
+      return false;  
+    }
+
+  
+                if (what.selectedIndex < 1) {
+                    alert("Please enter your course.");
+                    what.focus();
+                    return false;
+                }
+		else {  
+      alert ("Your password created successfully");  
+      document.write("JavaScript form has been submitted successfully");  
+    }  
+  
+                return true;
+            }
+        </script>
+  
+        <style>
+            div {
+                box-sizing: border-box;
+                width: 100%;
+                border: 100px solid black;
+                float: left;
+                align-content: center;
+                align-items: center;
+            }
+  
+            form {
+                margin: 0 auto;
+                width: 600px;
+            }
+
+        </style>
+    </head>
+  
+    <body>
+ 
+<button style="font-size:24px" onclick="history.back()"><i class="fa fa-arrow-circle-left"></i></button>
+<br>
+        <h1 style="text-align: center;">REGISTRATION FORM</h1>
+        <form name="RegForm" 
+              onsubmit="return validateForm()" method="post">
+            <p>Name: <input type="text" 
+                            size="65" name="Name" /></p>
+            <br />
+            
+       
+            <p>E-mail Address: <input type="email" 
+                            size="65" name="EMail" /></p>
+            <br />
+            <p>Password:<input type="password" placeholder="Password" id = "pswd1" required>
+		<span id = "message1" style="color:red"> </span> <br><br>  
+</p><br/>
+        <p> Confirm Password:<input type="password" placeholder="Confirm Password" id = "pswd2" required>
+<span id = "message2" style="color:red"> </span> <br><br>  
+</p><br/>
+
+
+            <p>Mobile Number: <input type="text" pattern="[789][0-9]{9}" 
+                        size="10" name="Telephone" /></p>
+            <br />
+  
+            <p>
+            <p>ADDRESS: <textarea cols="100" 
+                              name="Description"> </textarea></p>
+            <p>
+                STATE
+                <select type="text" value="" name="STATE">
+		    <option> </option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jharkhand">	Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerela">Kerela</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>   
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option> 
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Utarakhand</option>
+                            <option value="West Bengal">West Bengal</option>   
+                </select>
+            </p>
+            <br />
+                <input type="submit" 
+                       value="Submit" name="Submit" />
+                <input type="reset" 
+                       value="Reset" name="Reset" />
+            </p>
+ 
+        </form>
+    </body>
+</html>
